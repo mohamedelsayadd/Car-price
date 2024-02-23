@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Price Prediction</title>
+</head>
+<body>
+    <h1>Car Price Prediction</h1>
+    <form action="/predict" method="post" onsubmit="return validateForm()">
+        <label for="company">Company:</label>
+        <input type="text" id="company" name="company" required><br><br>
+
+        <label for="car_models">Car Model:</label>
+        <input type="text" id="car_models" name="car_models" required><br><br>
+
+        <label for="year">Year:</label>
+        <input type="number" id="year" name="year" required><br><br>
+
+        <label for="fuel_type">Fuel Type:</label>
+        <input type="text" id="fuel_type" name="fuel_type" required><br><br>
+
+        <label for="kilo_driven">Kilometers Driven:</label>
+        <input type="number" id="kilo_driven" name="kilo_driven" required><br><br>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    <h2>Result: <span id="result"></span></h2>
+
+    <script>
+        function validateForm() {
+            var company = document.getElementById("company").value;
+            var carModel = document.getElementById("car_models").value;
+            var year = document.getElementById("year").value;
+            var fuelType = document.getElementById("fuel_type").value;
+            var kiloDriven = document.getElementById("kilo_driven").value;
+
+            // Perform validation here, for example:
+            if (company === "" || carModel === "" || year === "" || fuelType === "" || kiloDriven === "") {
+                alert("All fields are required");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
